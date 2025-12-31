@@ -81,7 +81,6 @@ Penghapusan kedua kolom ini bertujuan untuk menyederhanakan struktur dataset dan
 
 ## Model Development & Results
 
-### Definisi Sistem Rekomendasi
 Sistem rekomendasi yang dikembangkan pada proyek ini adalah sistem rekomendasi berbasis konten (content-based filtering). Sistem ini bekerja dengan merekomendasikan buku yang memiliki karakteristik serupa dengan buku yang dipilih pengguna, berdasarkan informasi konten yang dimiliki buku tersebut, khususnya genre.
 
 Pendekatan ini tidak bergantung pada interaksi pengguna lain, melainkan fokus pada kemiripan antar item, sehingga cocok digunakan ketika data preferensi pengguna terbatas.
