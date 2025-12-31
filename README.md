@@ -6,7 +6,7 @@ Proyek ini berada dalam domain **Sistem Rekomendasi**, dengan fokus pada pemberi
 
 ## Latar Belakang
 
-Di era digital saat ini, jumlah buku yang tersedia di platform seperti Goodreads sangat banyak. Hal ini membuat pembaca sering kesulitan memilih buku yang sesuai minat mereka. Sistem rekomendasi berbasis konten hadir sebagai solusi untuk mempermudah proses pencarian, meningkatkan pengalaman pengguna, dan menghemat waktu. Dengan menilai kesamaan antar buku berdasarkan genre, sistem dapat memberikan rekomendasi yang logis dan sesuai dengan preferensi pembaca. Selain itu, pendekatan ini dapat dimanfaatkan oleh platform buku online untuk meningkatkan keterlibatan pengguna dan membantu pembaca menemukan karya yang relevan dengan cepat.
+Di era digital saat ini, jumlah buku yang tersedia di *platform* seperti Goodreads sangat banyak. Hal ini membuat pembaca sering kesulitan memilih buku yang sesuai minat mereka. Sistem rekomendasi berbasis konten hadir sebagai solusi untuk mempermudah proses pencarian, meningkatkan pengalaman pengguna, dan menghemat waktu. Dengan menilai kesamaan antar buku berdasarkan genre, sistem dapat memberikan rekomendasi yang logis dan sesuai dengan preferensi pembaca. Selain itu, pendekatan ini dapat dimanfaatkan oleh platform buku online untuk meningkatkan keterlibatan pengguna dan membantu pembaca menemukan karya yang relevan dengan cepat.
 
 ## Business Understanding
 
@@ -15,7 +15,7 @@ Masalah utama yang ingin diselesaikan dalam proyek ini adalah bagaimana memberik
 ## Data Understanding
 
 ### Pengantar Dataset
-Dataset yang digunakan dalam proyek ini diperoleh dari platform Kaggle dengan sumber Ishika Johari – Best Books 10K Multi-Genre Data. Dataset ini merupakan hasil pengumpulan data dari Goodreads, khususnya dari daftar Books That Everyone Should Read At Least Once. Data ini dirancang untuk merepresentasikan informasi penting terkait buku lintas genre yang banyak direkomendasikan oleh pengguna.
+Dataset yang digunakan dalam proyek ini diperoleh dari platform Kaggle dengan sumber **Ishika Johari** – Best Books 10K Multi-Genre Data. Dataset ini merupakan hasil pengumpulan data dari Goodreads, khususnya dari daftar **Books That Everyone Should Read At Least Once**. Data ini dirancang untuk merepresentasikan informasi penting terkait buku lintas genre yang banyak direkomendasikan oleh pengguna.
 
 ### Sumber Data
 Dataset dapat diakses melalui Kaggle pada tautan berikut:
@@ -23,22 +23,22 @@ https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data
 
 ### Jumlah Baris dan Kolom
 Berdasarkan hasil eksplorasi awal, dataset terdiri dari:
-* 10.000 baris data
-* 8 kolom fitur
+
+* 10.000 Baris Data
+* 8 Kolom Fitur
+
 Setiap baris merepresentasikan satu buku dengan atribut informasi yang relevan untuk analisis dan pemodelan sistem rekomendasi.
 
 ### Kondisi Data
 Hasil pengecekan kualitas data menunjukkan beberapa kondisi berikut:
-* Missing Value:
-Kolom Description memiliki 77 nilai kosong, jumlah ini relatif kecil dibandingkan total data sehingga baris dengan missing value dihapus untuk menyederhanakan proses analisis.
+* **Missing Value:**
+Berdasarkan hasil pemeriksaan kualitas data, ditemukan beberapa kondisi pada dataset. Terdapat missing value pada kolom Description sebanyak 77 baris. Jumlah ini relatif kecil dibandingkan total data sehingga tidak memberikan dampak signifikan terhadap keseluruhan analisis.
 
-* Tipe Data:
-Kolom Num_Ratings awalnya bertipe string karena mengandung tanda koma sebagai pemisah ribuan, kemudian dikonversi menjadi tipe integer agar dapat dianalisis secara numerik.
+* **Tipe Data:**
+Dari sisi tipe data, kolom Num_Ratings awalnya tersimpan sebagai string karena adanya tanda koma sebagai pemisah ribuan, sehingga perlu diperhatikan sebelum dilakukan analisis numerik.
 
-* Duplikasi Data:
-Tidak ditemukan data duplikat pada dataset.
-
-Setelah proses pembersihan, seluruh data yang tersisa dinilai layak digunakan untuk tahap pemodelan.
+* **Duplikasi Data:**
+Selain itu, pemeriksaan duplikasi data menunjukkan bahwa tidak terdapat data duplikat dalam dataset.
 
 ### Uraian Fitur Dataset
 
@@ -113,8 +113,8 @@ Sebagai contoh hasil rekomendasi, ketika pengguna memilih buku Pride and Prejudi
 
 Hasil rekomendasi menunjukkan bahwa buku-buku seperti Emma, Persuasion, dan Sense and Sensibility muncul sebagai rekomendasi utama. Hal ini terjadi karena buku-buku tersebut memiliki kesamaan genre, yaitu Classics, Fiction, Romance, dan Historical, sehingga dinilai sangat relevan untuk pembaca Pride and Prejudice.
 
-| No | Book                                   | Genres |
-|----|----------------------------------------|--------|
+| No | Book                                   | Genres                                 |
+|----|----------------------------------------|--------------------------------------- |
 | 1  | Emma                                   | Classics, Fiction, Romance, Historical |
 | 2  | Persuasion                             | Classics, Fiction, Romance, Historical |
 | 3  | Sense and Sensibility                  | Classics, Fiction, Romance, Historical |
@@ -142,10 +142,10 @@ Evaluasi dilakukan pada sistem rekomendasi dengan skema Top-10 Recommendation, y
 | Recall@10     | 0.0031 |
 | F1-Score@10   | 0.0062 |
 
-### Interpretasi Precision
+### 1. Interpretasi Precision
 Nilai Precision@10 sebesar 0.9080 menunjukkan bahwa sebagian besar buku yang direkomendasikan oleh sistem merupakan buku yang relevan. Artinya, dari 10 buku yang ditampilkan, sekitar 90% di antaranya memiliki kesamaan genre yang sesuai dengan buku acuan. Hal ini mengindikasikan bahwa model mampu memberikan rekomendasi yang tepat sasaran dan konsisten berdasarkan kemiripan konten.
 
-### Interpretasi Recall
+### 2. Interpretasi Recall
 Nilai Recall@10 yang rendah (0.0031) menunjukkan bahwa sistem hanya mencakup sebagian kecil dari seluruh buku relevan yang tersedia di dataset. Hal ini wajar terjadi karena:
 * Dataset memiliki jumlah item yang sangat besar (ribuan buku).
 * Sistem hanya menampilkan 10 rekomendasi teratas, sehingga tidak mungkin mencakup seluruh buku yang relevan.
@@ -153,7 +153,7 @@ Nilai Recall@10 yang rendah (0.0031) menunjukkan bahwa sistem hanya mencakup seb
 
 Dengan kata lain, recall menjadi kecil karena ruang pencarian relevan sangat luas, sementara jumlah rekomendasi dibatasi.
 
-### Interpretasi F1-Score
+### 3. Interpretasi F1-Score
 Nilai F1-Score sebesar 0.0062 dipengaruhi langsung oleh nilai recall yang rendah. Meskipun precision tinggi, nilai F1 menjadi kecil karena F1 merupakan harmonisasi antara precision dan recall. Namun, dalam konteks sistem rekomendasi Top-K, F1-score bukan satu-satunya indikator utama kualitas rekomendasi.
 
 ### Kesimpulan Evaluasi
